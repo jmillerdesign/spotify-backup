@@ -46,7 +46,7 @@ class SpotifyAPI:
 		response = self.get(url, params, root=root)
 		items = response['items']
 		while response['next']:
-			response = self.get(response['next'])
+			response = self.get(response['next'], root=root)
 			items += response['items']
 			print('.', end='')
 			sys.stdout.flush()
